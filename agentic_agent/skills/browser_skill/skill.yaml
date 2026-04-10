@@ -1,0 +1,25 @@
+name: agentic-browser
+version: 0.1.0
+description: Agentic AI agent for browser automation using Playwright
+author: OpenHands Agent
+commands:
+  - name: /browser:task
+    description: Execute a browser automation task
+    usage: /browser:task <task_description>
+    example: /browser:task "Navigate to example.com and take a screenshot"
+  - name: /browser:navigate
+    description: Navigate to a URL
+    usage: /browser:navigate <url>
+    example: /browser:navigate "https://example.com"
+  - name: /browser:screenshot
+    description: Take a browser screenshot
+    usage: /browser:screenshot [path]
+    example: /browser:screenshot "screenshot.png"
+  - name: /browser:click
+    description: Click an element
+    usage: /browser:click <css_selector>
+    example: /browser:click "#submit-button"
+  - name: /browser:fill
+    description: Fill form fields
+    usage: /browser:fill <json_data>
+    example: /browser:fill '{"#username": "admin", "#password": "secret"}'
