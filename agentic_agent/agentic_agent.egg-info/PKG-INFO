@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: agentic-agent
+Version: 0.1.0
+Summary: Agentic AI agent for desktop and Chrome browser automation
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: playwright>=1.40.0
+Requires-Dist: pyautogui>=0.9.54
+Requires-Dist: pyscreenshot>=3.0
+Requires-Dist: Pillow>=10.0.0
+Requires-Dist: langchain>=0.1.0
+Requires-Dist: langchain-ollama>=0.1.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: httpx>=0.25.0
+Requires-Dist: pyyaml>=6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: mypy>=1.7.0; extra == "dev"
+
+# Agentic Agent
+
+An AI agent for desktop and Chrome browser automation powered by local LLM (Ollama).
+
+## Features
+
+- **Browser Automation**: Chrome automation using Playwright with CDP
+- **Desktop Automation**: GUI automation using PyAutoGUI
+- **File Management**: Read, write, copy, move, delete files
+- **LLM-Powered**: Natural language task understanding with Ollama
+- **OpenHands Integration**: Package as OpenHands skill
+
+## Installation
+
+```bash
+# Install dependencies
+pip install -e .
+
+# Install Playwright browsers
+playwright install chromium
+```
+
+## Usage
+
+```bash
+# Run a task
+python -m agentic_agent "Open Chrome and go to example.com"
+
+# Interactive mode
+python -m agentic_agent --interactive
+
+# Browser commands
+python -m agentic_agent browser navigate https://example.com
+python -m agentic_agent browser screenshot output.png
+
+# Desktop commands
+python -m agentic_agent desktop screenshot
+python -m agentic_agent desktop click 100,200
+
+# File commands
+python -m agentic_agent file read config.json
+python -m agentic_agent file write hello.txt "Hello World"
+```
+
+## Configuration
+
+Set Ollama endpoint in environment:
+```bash
+export OLLAMA_BASE_URL=http://localhost:11434
+export OLLAMA_MODEL=llama3.2
+```
+
+## License
+
+MIT

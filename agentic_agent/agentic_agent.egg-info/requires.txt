@@ -1,0 +1,15 @@
+playwright>=1.40.0
+pyautogui>=0.9.54
+pyscreenshot>=3.0
+Pillow>=10.0.0
+langchain>=0.1.0
+langchain-ollama>=0.1.0
+python-dotenv>=1.0.0
+httpx>=0.25.0
+pyyaml>=6.0
+
+[dev]
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+mypy>=1.7.0

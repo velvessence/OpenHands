@@ -136,6 +136,27 @@ class BrowserController:
         except Exception as e:
             return False
     
+    async def type(self, selector: str, text: str, delay: float = 0) -> bool:
+        """
+        Type text into an element.
+        
+        Args:
+            selector: CSS selector for the input element
+            text: Text to type
+            delay: Delay between keystrokes in ms
+            
+        Returns:
+            True if typing succeeded
+        """
+        if not self.page:
+            raise RuntimeError("Browser not started.")
+        
+        try:
+            await self.page.fill(selector, text)
+            return True
+        except Exception:
+            return False
+    
     async def fill_form(self, form_data: Dict[str, str]) -> bool:
         """
         Fill form fields.
@@ -176,7 +197,26 @@ class BrowserController:
             return True
         except Exception as e:
             return False
-    
+
+    async def press_key(self, key: str) -> bool:
+        """
+        Press a key on the keyboard.
+        
+        Args:
+            key: Key to press (e.g., 'Enter', 'Escape', 'ArrowDown')
+            
+        Returns:
+            True if key press succeeded
+        """
+        if not self.page:
+            raise RuntimeError("Browser not started.")
+        
+        try:
+            await self.page.keyboard.press(key)
+            return True
+        except Exception:
+            return False
+
     async def get_page_content(self, selector: Optional[str] = None) -> str:
         """
         Get page content.
